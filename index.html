@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Crust Bakery | Handcrafted Bread & Pastries — Sioux Falls, SD</title>
+  <meta name="description" content="Fresh handcrafted breads, flaky pastries, and seasonal baked goods. Order online for pickup at our Sioux Falls bakery.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="16" cy="18" rx="14" ry="10" fill="#c8a46e" opacity="0.2"/>
+            <ellipse cx="16" cy="16" rx="12" ry="9" fill="#c8a46e" opacity="0.4"/>
+            <path d="M6 18c0-5.5 4.5-10 10-10s10 4.5 10 10c0 3-2 5.5-4 7H10c-2-1.5-4-4-4-7z" fill="#c8a46e"/>
+            <path d="M10 16c1-3 3-5 6-5s5 2 6 5" stroke="#2c2418" stroke-width="1.2" fill="none" opacity="0.3"/>
+          </svg>
+        </span>
+        <span class="logo-text">Golden Crust</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <!-- Mobile overlay close button -->
+        <button class="nav-close" id="nav-close" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <div class="nav-content">
+          <ul class="nav-list">
+            <li><a href="#about" class="nav-link"><span class="nav-num">01</span><span class="nav-label">Our Story</span></a></li>
+            <li><a href="#menu" class="nav-link"><span class="nav-num">02</span><span class="nav-label">Menu</span></a></li>
+            <li><a href="#gallery" class="nav-link"><span class="nav-num">03</span><span class="nav-label">Gallery</span></a></li>
+            <li><a href="#testimonials" class="nav-link"><span class="nav-num">04</span><span class="nav-label">Reviews</span></a></li>
+            <li><a href="#location" class="nav-link"><span class="nav-num">05</span><span class="nav-label">Visit Us</span></a></li>
+          </ul>
+          <a href="#order" class="nav-order-cta nav-link">Order for Pickup</a>
+          <p class="nav-tagline">Handcrafted in Sioux Falls, SD</p>
+        </div>
+      </nav>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero" id="hero">
+    <!-- Video Background -->
+    <div class="hero-video-wrap" aria-hidden="true">
+      <video
+        class="hero-video"
+        id="hero-video"
+        muted
+        playsinline
+        preload="auto"
+        poster="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1400&h=800&fit=crop"
+      >
+        <source src="images/bread-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow">Handcrafted in Sioux Falls</span>
+        <h1 class="hero-headline">Baked Fresh<br>Every Morning</h1>
+        <p class="hero-subtitle">From crusty sourdough loaves to buttery croissants, everything is made from scratch in small batches — the way it should be.</p>
+        <div class="hero-ctas">
+          <a href="#order" class="btn btn-primary">Order for Pickup</a>
+          <a href="#menu" class="btn btn-secondary">See the Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scroll-indicator" aria-hidden="true">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       ABOUT / OUR STORY
+       ============================================ -->
+  <section class="section section-cream" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Story</span>
+        <h2>Bread Made the Way<br>It Used to Be</h2>
+        <p class="section-subtitle">No shortcuts. No preservatives. Just flour, water, salt, time — and hands that know what they're doing.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" stroke="#c8a46e" stroke-width="1.5" fill="none"/>
+              <path d="M14 22c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#c8a46e" stroke-width="1.5" fill="none"/>
+              <circle cx="20" cy="16" r="2" fill="#c8a46e"/>
+            </svg>
+          </div>
+          <h3>Small Batch, Always</h3>
+          <p>Every loaf is shaped by hand in batches small enough to get right. We bake what we can do well — and nothing more.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" stroke="#c8a46e" stroke-width="1.5" fill="none"/>
+              <path d="M13 20h14M20 13v14" stroke="#c8a46e" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Ingredients You Can Trust</h3>
+          <p>Locally milled flour, real butter, free-range eggs. We keep it simple because the good stuff doesn't need help.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" stroke="#c8a46e" stroke-width="1.5" fill="none"/>
+              <path d="M15 25 Q20 12 25 25" stroke="#c8a46e" stroke-width="1.5" fill="none"/>
+              <path d="M12 25h16" stroke="#c8a46e" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Baked Before Dawn</h3>
+          <p>Our ovens fire up at 3 AM so everything is warm and ready when you walk through the door. That's just how we do it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MENU / WHAT WE BAKE
+       ============================================ -->
+  <section class="section section-white" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The Menu</span>
+        <h2>What We Bake</h2>
+        <p class="section-subtitle">Handcrafted daily in small batches. Once it's gone, it's gone — come early for the best selection.</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+        <button class="menu-tab active" role="tab" aria-selected="true" data-category="all">All</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-category="breads">Breads</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-category="pastries">Pastries</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-category="seasonal">Seasonal</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-category="drinks">Drinks</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="menu-grid">
+
+        <!-- BREADS -->
+        <div class="menu-card" data-category="breads" data-name="Classic Sourdough" data-price="8.50">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=400&h=300&fit=crop" alt="Classic Sourdough loaf" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Classic Sourdough</h3>
+              <span class="menu-price">$8.50</span>
+            </div>
+            <p>Our signature loaf with a 48-hour ferment. Crispy, shattering crust and a tangy, open crumb. Perfect for sandwiches or just butter.</p>
+            <button class="btn btn-add-to-order" data-name="Classic Sourdough" data-price="8.50">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="breads" data-name="Honey Oat Wheat" data-price="7.50">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Honey Oat Wheat loaf" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Honey Oat Wheat</h3>
+              <span class="menu-price">$7.50</span>
+            </div>
+            <p>Soft whole wheat with a touch of local honey and rolled oats on top. A little sweet, a little nutty — the everyday loaf.</p>
+            <button class="btn btn-add-to-order" data-name="Honey Oat Wheat" data-price="7.50">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="breads" data-name="Rosemary Olive Oil" data-price="9.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=400&h=300&fit=crop" alt="Rosemary Olive Oil loaf" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Rosemary Olive Oil</h3>
+              <span class="menu-price">$9.00</span>
+            </div>
+            <p>Fragrant rosemary and extra virgin olive oil baked into a tender, golden loaf. Incredible alongside soup or pasta.</p>
+            <button class="btn btn-add-to-order" data-name="Rosemary Olive Oil" data-price="9.00">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="breads" data-name="Everything Ciabatta" data-price="8.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=400&h=300&fit=crop" alt="Everything Ciabatta" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Everything Ciabatta</h3>
+              <span class="menu-price">$8.00</span>
+            </div>
+            <p>Our airy ciabatta loaded with sesame, poppy, garlic, and onion. Light inside, crunchy outside, flavor everywhere.</p>
+            <button class="btn btn-add-to-order" data-name="Everything Ciabatta" data-price="8.00">Add to Order</button>
+          </div>
+        </div>
+
+        <!-- PASTRIES -->
+        <div class="menu-card" data-category="pastries" data-name="Butter Croissant" data-price="4.50">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=400&h=300&fit=crop" alt="Butter Croissant" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Butter Croissant</h3>
+              <span class="menu-price">$4.50</span>
+            </div>
+            <p>36 layers of laminated dough and real European butter. Flaky, golden, and shatteringly crisp. Our most popular pastry.</p>
+            <button class="btn btn-add-to-order" data-name="Butter Croissant" data-price="4.50">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="pastries" data-name="Almond Danish" data-price="5.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=400&h=300&fit=crop" alt="Almond Danish" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Almond Danish</h3>
+              <span class="menu-price">$5.00</span>
+            </div>
+            <p>Buttery danish filled with almond cream and topped with sliced almonds. Toasted golden and just sweet enough.</p>
+            <button class="btn btn-add-to-order" data-name="Almond Danish" data-price="5.00">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="pastries" data-name="Blueberry Scone" data-price="4.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1571210059434-edf0dc48e414?w=400&h=300&fit=crop" alt="Blueberry Scone" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Blueberry Scone</h3>
+              <span class="menu-price">$4.00</span>
+            </div>
+            <p>Tender, crumbly, and packed with fresh blueberries. Finished with a light lemon glaze. Best warm with coffee.</p>
+            <button class="btn btn-add-to-order" data-name="Blueberry Scone" data-price="4.00">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="pastries" data-name="Chocolate Hazelnut Muffin" data-price="4.50">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&h=300&fit=crop" alt="Chocolate Hazelnut Muffin" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Chocolate Hazelnut Muffin</h3>
+              <span class="menu-price">$4.50</span>
+            </div>
+            <p>Rich dark chocolate batter with roasted hazelnuts and a crackly sugar top. Indulgent but not too sweet.</p>
+            <button class="btn btn-add-to-order" data-name="Chocolate Hazelnut Muffin" data-price="4.50">Add to Order</button>
+          </div>
+        </div>
+
+        <!-- SEASONAL -->
+        <div class="menu-card" data-category="seasonal" data-name="Maple Pecan Loaf" data-price="10.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" alt="Maple Pecan Loaf" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Maple Pecan Loaf</h3>
+              <span class="menu-price">$10.00</span>
+            </div>
+            <p>Spring special — golden bread swirled with real maple syrup and studded with toasted pecans. Limited batch, while it lasts.</p>
+            <div class="menu-tag">Seasonal</div>
+            <button class="btn btn-add-to-order" data-name="Maple Pecan Loaf" data-price="10.00">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="seasonal" data-name="Lemon Lavender Scone" data-price="5.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400&h=300&fit=crop" alt="Lemon Lavender Scone" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Lemon Lavender Scone</h3>
+              <span class="menu-price">$5.00</span>
+            </div>
+            <p>Bright lemon zest and dried lavender in a delicate, crumbly scone. Light, floral, and perfect for spring mornings.</p>
+            <div class="menu-tag">Seasonal</div>
+            <button class="btn btn-add-to-order" data-name="Lemon Lavender Scone" data-price="5.00">Add to Order</button>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-card" data-category="drinks" data-name="House Drip Coffee" data-price="3.50">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop" alt="House Drip Coffee" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>House Drip Coffee</h3>
+              <span class="menu-price">$3.50</span>
+            </div>
+            <p>Locally roasted, smooth and full-bodied. Brewed fresh throughout the morning. The perfect partner for anything we bake.</p>
+            <button class="btn btn-add-to-order" data-name="House Drip Coffee" data-price="3.50">Add to Order</button>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="drinks" data-name="Chai Latte" data-price="5.00">
+          <div class="menu-card-img">
+            <img src="https://images.unsplash.com/photo-1557006021-b85faa2bc5e2?w=400&h=300&fit=crop" alt="Chai Latte" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Chai Latte</h3>
+              <span class="menu-price">$5.00</span>
+            </div>
+            <p>House-made spiced chai with steamed milk. Warm, aromatic, and just a little sweet. Available hot or iced.</p>
+            <button class="btn btn-add-to-order" data-name="Chai Latte" data-price="5.00">Add to Order</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-cta">
+        <a href="#order" class="btn btn-primary">Order for Pickup</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       ONLINE ORDERING
+       ============================================ -->
+  <section class="section section-cream" id="order">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Online Ordering</span>
+        <h2>Order for Pickup</h2>
+        <p class="section-subtitle">Add items from the menu, pick a time, and we'll have it ready and waiting.</p>
+      </div>
+
+      <div class="order-layout">
+        <!-- Cart -->
+        <div class="order-cart" id="order-cart">
+          <h3 class="order-cart-title">Your Order</h3>
+          <div class="cart-empty" id="cart-empty">
+            <p>Your cart is empty. Add items from the menu above.</p>
+          </div>
+          <div class="cart-items" id="cart-items"></div>
+          <div class="cart-footer" id="cart-footer" style="display: none;">
+            <div class="cart-total">
+              <span>Total</span>
+              <span class="cart-total-amount" id="cart-total-amount">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pickup Scheduling -->
+        <div class="order-form-wrapper" id="order-form-wrapper">
+          <form class="order-form" id="order-form" novalidate>
+            <div class="form-section">
+              <h3>Choose Pickup Date</h3>
+              <div class="date-picker" id="date-picker"></div>
+            </div>
+
+            <div class="form-section">
+              <h3>Choose Pickup Time</h3>
+              <div class="time-slots">
+                <div class="time-group">
+                  <span class="time-group-label">Morning</span>
+                  <div class="time-group-slots">
+                    <button type="button" class="time-slot" data-time="7:00 AM">7:00 AM</button>
+                    <button type="button" class="time-slot" data-time="8:00 AM">8:00 AM</button>
+                    <button type="button" class="time-slot" data-time="9:00 AM">9:00 AM</button>
+                    <button type="button" class="time-slot" data-time="10:00 AM">10:00 AM</button>
+                  </div>
+                </div>
+                <div class="time-group">
+                  <span class="time-group-label">Midday</span>
+                  <div class="time-group-slots">
+                    <button type="button" class="time-slot" data-time="11:00 AM">11:00 AM</button>
+                    <button type="button" class="time-slot" data-time="12:00 PM">12:00 PM</button>
+                    <button type="button" class="time-slot" data-time="1:00 PM">1:00 PM</button>
+                  </div>
+                </div>
+                <div class="time-group">
+                  <span class="time-group-label">Afternoon</span>
+                  <div class="time-group-slots">
+                    <button type="button" class="time-slot" data-time="2:00 PM">2:00 PM</button>
+                    <button type="button" class="time-slot" data-time="3:00 PM">3:00 PM</button>
+                    <button type="button" class="time-slot" data-time="4:00 PM">4:00 PM</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Your Details</h3>
+              <div class="form-group">
+                <label for="customer-name">Full Name</label>
+                <input type="text" id="customer-name" name="name" required placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="customer-phone">Phone Number</label>
+                <input type="tel" id="customer-phone" name="phone" required placeholder="(605) 555-0123">
+              </div>
+              <div class="form-group">
+                <label for="customer-email">Email</label>
+                <input type="email" id="customer-email" name="email" required placeholder="you@email.com">
+              </div>
+              <div class="form-group">
+                <label for="special-instructions">Special Instructions <span class="optional">(optional)</span></label>
+                <textarea id="special-instructions" name="instructions" rows="3" placeholder="Allergies, modifications, or anything we should know"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="submit-order" disabled>Place Order</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Order Confirmation -->
+      <div class="order-confirmation" id="order-confirmation" style="display: none;">
+        <div class="confirmation-icon">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" stroke="#c8a46e" stroke-width="2" fill="none"/>
+            <path d="M20 32l8 8 16-16" stroke="#c8a46e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2>Order Received!</h2>
+        <p>We'll have it ready and waiting for you. Thanks for choosing Golden Crust.</p>
+        <div class="confirmation-details" id="confirmation-details"></div>
+        <button class="btn btn-secondary" id="new-order-btn">Start a New Order</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       GALLERY
+       ============================================ -->
+  <section class="section section-white" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">From Our Bakery</span>
+        <h2>See Our Bakes</h2>
+        <p class="section-subtitle">A look inside the ovens, the counter, and the craft that goes into every single batch.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-item-wide">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=500&fit=crop" alt="Fresh loaves cooling on a rack" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=400&h=400&fit=crop" alt="Hands shaping dough" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=400&h=400&fit=crop" alt="Golden croissants fresh from the oven" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1571210059434-edf0dc48e414?w=400&h=400&fit=crop" alt="Scones with berries and glaze" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=400&h=400&fit=crop" alt="Flaky butter croissants" loading="lazy">
+        </div>
+        <div class="gallery-item gallery-item-wide">
+          <img src="https://images.unsplash.com/photo-1556471013-0001958d2f12?w=800&h=500&fit=crop" alt="Warm bakery interior with pastry display" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=400&h=400&fit=crop" alt="Flour-dusted sourdough scoring" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       TESTIMONIALS
+       ============================================ -->
+  <section class="section section-cream" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">What People Say</span>
+        <h2>From Our Neighbors</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>
+            <p>"The sourdough here ruined every other bread for me. I pick up a loaf every Saturday morning — my family won't let me skip a week."</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <strong>Sarah M.</strong>
+            <span>Sioux Falls</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>
+            <p>"Ordered online for a brunch we were hosting. The pickup was seamless and everything was still warm. The almond danishes were gone in minutes."</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <strong>Mike & Rachel T.</strong>
+            <span>Brandon, SD</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>
+            <p>"I've been coming here since they opened. The rosemary olive oil bread is unreal — and the staff always remembers my name."</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <strong>David L.</strong>
+            <span>Sioux Falls</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>
+            <p>"Finally, a real bakery in Sioux Falls. You can taste the difference when things are made from scratch. The croissants are as good as what I had in Paris."</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <strong>Jennifer K.</strong>
+            <span>Sioux Falls</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       EMAIL SIGNUP
+       ============================================ -->
+  <section class="section section-white" id="signup">
+    <div class="container">
+      <div class="signup-wrapper">
+        <div class="signup-content">
+          <span class="eyebrow">Stay in the Loop</span>
+          <h2>Fresh Updates, Straight to Your Inbox</h2>
+          <p>Be the first to know when seasonal items drop. New bakes, special offers, and bakery news — no spam, just the good stuff.</p>
+        </div>
+        <form class="signup-form" id="signup-form" novalidate>
+          <div class="signup-fields">
+            <input type="text" name="first_name" placeholder="First name (optional)" class="signup-input" aria-label="First name">
+            <input type="email" name="email" placeholder="Your email" required class="signup-input" aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Stay in the Loop</button>
+          </div>
+          <div class="signup-success" id="signup-success" style="display: none;">
+            <p>You're in! Watch your inbox for fresh updates.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       LOCATION & HOURS
+       ============================================ -->
+  <section class="section section-cream" id="location">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Come Visit</span>
+        <h2>Find Us in Sioux Falls</h2>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="location-detail">
+            <h3>Address</h3>
+            <p>[PLACEHOLDER: Street address]<br>Sioux Falls, SD 57104</p>
+          </div>
+          <div class="location-detail">
+            <h3>Hours</h3>
+            <ul class="hours-list">
+              <li><span>Tuesday – Friday</span><span>6:30 AM – 4:00 PM</span></li>
+              <li><span>Saturday</span><span>7:00 AM – 3:00 PM</span></li>
+              <li><span>Sunday</span><span>8:00 AM – 1:00 PM</span></li>
+              <li><span>Monday</span><span>Closed</span></li>
+            </ul>
+          </div>
+          <div class="location-detail">
+            <h3>Contact</h3>
+            <p>[PLACEHOLDER: Phone number]<br>[PLACEHOLDER: Email address]</p>
+          </div>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+        </div>
+        <div class="location-map">
+          <div class="map-placeholder">
+            <img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?w=600&h=400&fit=crop" alt="Bakery storefront in Sioux Falls" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">Golden Crust Bakery</span>
+        <p>Handcrafted bread & pastries.<br>Sioux Falls, South Dakota.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#order">Order Online</a></li>
+          <li><a href="#location">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Golden Crust Bakery. All rights reserved.</p>
+        <p class="footer-credit">Demo site by <strong>Impact Web Company</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/interactions.js" defer></script>
+</body>
+</html>

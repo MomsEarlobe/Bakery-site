@@ -1,0 +1,9 @@
+[submodule "tools/claude-peers-mcp"]
+	path = tools/claude-peers-mcp
+	url = https://github.com/louislva/claude-peers-mcp
+[submodule "tools/deepagents"]
+	path = tools/deepagents
+	url = https://github.com/langchain-ai/deepagents
+[submodule "tools/playwright"]
+	path = tools/playwright
+	url = https://github.com/microsoft/playwright.git
