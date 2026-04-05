@@ -15,21 +15,22 @@
   // MOBILE NAV — Animated overlay
   // ============================================
   const menuToggle = document.getElementById('mobile-menu-toggle');
-  const mainNav = document.getElementById('main-nav');
+  const mobileOverlay = document.getElementById('mobile-nav-overlay');
   const navClose = document.getElementById('nav-close');
 
-  if (menuToggle && mainNav) {
-    const navItems = mainNav.querySelectorAll('.nav-list li, .nav-order-cta');
+  if (menuToggle && mobileOverlay) {
+    const navItems = mobileOverlay.querySelectorAll('.nav-list li, .nav-order-cta');
     let isOpen = false;
 
     function openMenu() {
       isOpen = true;
-      mainNav.classList.add('open');
+      mobileOverlay.classList.add('open');
+      mobileOverlay.removeAttribute('aria-hidden');
       menuToggle.classList.add('active');
       menuToggle.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
 
-      gsap.fromTo(mainNav,
+      gsap.fromTo(mobileOverlay,
         { opacity: 0 },
         { opacity: 1, duration: 0.3, ease: 'power2.out' }
       );
@@ -42,12 +43,13 @@
     function closeMenu() {
       isOpen = false;
       document.body.style.overflow = '';
-      gsap.to(mainNav, {
+      gsap.to(mobileOverlay, {
         opacity: 0,
         duration: 0.22,
         ease: 'power2.in',
         onComplete: () => {
-          mainNav.classList.remove('open');
+          mobileOverlay.classList.remove('open');
+          mobileOverlay.setAttribute('aria-hidden', 'true');
           menuToggle.classList.remove('active');
           menuToggle.setAttribute('aria-expanded', 'false');
           gsap.set(navItems, { clearProps: 'all' });
@@ -58,7 +60,7 @@
     menuToggle.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
     if (navClose) navClose.addEventListener('click', closeMenu);
 
-    mainNav.querySelectorAll('.nav-link').forEach(link => {
+    mobileOverlay.querySelectorAll('.nav-link, .nav-order-cta').forEach(link => {
       link.addEventListener('click', closeMenu);
     });
   }

@@ -37,26 +37,16 @@
         <span class="logo-text">Golden Crust</span>
       </a>
 
+      <!-- Desktop nav (stays in header) -->
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-        <!-- Mobile overlay close button -->
-        <button class="nav-close" id="nav-close" aria-label="Close menu">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </button>
-
-        <div class="nav-content">
-          <ul class="nav-list">
-            <li><a href="#about" class="nav-link"><span class="nav-num">01</span><span class="nav-label">Our Story</span></a></li>
-            <li><a href="#menu" class="nav-link"><span class="nav-num">02</span><span class="nav-label">Menu</span></a></li>
-            <li><a href="#gallery" class="nav-link"><span class="nav-num">03</span><span class="nav-label">Gallery</span></a></li>
-            <li><a href="#testimonials" class="nav-link"><span class="nav-num">04</span><span class="nav-label">Reviews</span></a></li>
-            <li><a href="#location" class="nav-link"><span class="nav-num">05</span><span class="nav-label">Visit Us</span></a></li>
-          </ul>
-          <a href="#order" class="nav-order-cta nav-link">Order for Pickup</a>
-          <p class="nav-tagline">Handcrafted in Sioux Falls, SD</p>
-        </div>
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">Our Story</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          <li><a href="#location" class="nav-link">Visit</a></li>
+          <li><a href="#order" class="nav-link nav-cta">Order for Pickup</a></li>
+        </ul>
       </nav>
 
       <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
@@ -664,6 +654,27 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Nav Overlay (body-level — escapes header's backdrop-filter containing block) -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <button class="nav-close" id="nav-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="nav-content">
+      <ul class="nav-list">
+        <li><a href="#about" class="nav-link"><span class="nav-num">01</span><span class="nav-label">Our Story</span></a></li>
+        <li><a href="#menu" class="nav-link"><span class="nav-num">02</span><span class="nav-label">Menu</span></a></li>
+        <li><a href="#gallery" class="nav-link"><span class="nav-num">03</span><span class="nav-label">Gallery</span></a></li>
+        <li><a href="#testimonials" class="nav-link"><span class="nav-num">04</span><span class="nav-label">Reviews</span></a></li>
+        <li><a href="#location" class="nav-link"><span class="nav-num">05</span><span class="nav-label">Visit Us</span></a></li>
+      </ul>
+      <a href="#order" class="nav-order-cta">Order for Pickup</a>
+      <p class="nav-tagline">Handcrafted in Sioux Falls, SD</p>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/interactions.js" defer></script>

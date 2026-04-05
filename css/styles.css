@@ -343,21 +343,151 @@ h4 { font-size: var(--sz-h4); font-weight: 600; }
   box-shadow: 0 4px 16px rgba(44,36,24,0.15);
 }
 
-/* Nav overlay close button — hidden on desktop, shown via mobile media query */
+/* ============================================
+   MOBILE NAV OVERLAY
+   Lives at body level to escape header's backdrop-filter containing block.
+   Hidden by default; GSAP + .open class controls visibility.
+   ============================================ */
+.mobile-nav-overlay {
+  display: none; /* shown only at mobile breakpoint */
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: var(--bg-base);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Warm radial glow */
+.mobile-nav-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,164,110,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Close button */
 .nav-close {
-  display: none;
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44,36,24,0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background var(--ease-fast), transform var(--ease-fast);
 }
 
-/* Desktop: nav-content is just a transparent pass-through wrapper */
+.nav-close:hover {
+  background: rgba(44,36,24,0.12);
+  transform: rotate(90deg);
+}
+
+/* Overlay content container */
 .nav-content {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-10);
+  width: 100%;
+  max-width: 360px;
+  padding: var(--sp-12) var(--sp-8);
 }
 
-/* Desktop: hide mobile-only overlay elements */
-.nav-num,
-.nav-tagline,
+/* Overlay nav list */
+.mobile-nav-overlay .nav-list {
+  flex-direction: column;
+  gap: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.mobile-nav-overlay .nav-list li:not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent-gold);
+  opacity: 0.35;
+  margin: var(--sp-3) auto;
+}
+
+.mobile-nav-overlay .nav-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: color var(--ease-fast);
+}
+
+.mobile-nav-overlay .nav-link:hover .nav-label,
+.mobile-nav-overlay .nav-link:focus .nav-label {
+  color: var(--accent-brown);
+}
+
+.nav-num {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--accent-gold);
+  opacity: 0.8;
+  position: relative;
+  top: -2px;
+}
+
+.nav-label {
+  transition: color var(--ease-fast);
+}
+
+/* Order CTA pill */
 .nav-order-cta {
-  display: none;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bg-base);
+  background: var(--accent-dark);
+  padding: 14px 32px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: background var(--ease-fast), transform var(--ease-fast);
+}
+
+.nav-order-cta:hover {
+  background: var(--accent-brown);
+  transform: translateY(-1px);
+}
+
+/* Tagline */
+.nav-tagline {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 /* Mobile Menu Toggle */
@@ -1402,162 +1532,18 @@ h4 { font-size: var(--sz-h4); font-weight: 600; }
     padding: var(--sp-16) 0;
   }
 
-  /* Mobile Nav — Full-screen overlay */
+  /* Hide desktop nav, show hamburger */
   .main-nav {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background-color: var(--bg-base);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    /* GSAP handles all motion — no CSS transition here */
-  }
-
-  /* Warm radial glow at center */
-  .main-nav::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,164,110,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .main-nav.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  /* Close button */
-  .nav-close {
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    align-items: center;
-    justify-content: center;
-    background: rgba(44,36,24,0.06);
-    border: 1px solid var(--border-subtle);
-    border-radius: 50%;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: background var(--ease-fast), transform var(--ease-fast);
-  }
-
-  .nav-close:hover {
-    background: rgba(44,36,24,0.12);
-    transform: rotate(90deg);
-  }
-
-  /* Content container */
-  .nav-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--sp-10);
-    width: 100%;
-    max-width: 360px;
-    padding: var(--sp-12) var(--sp-8);
-  }
-
-  .nav-list {
-    flex-direction: column;
-    gap: 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  /* Gold divider between main items */
-  .nav-list li:not(:last-child)::after {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--accent-gold);
-    opacity: 0.35;
-    margin: var(--sp-3) auto;
-  }
-
-  .nav-link {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    padding: 6px 0;
-    text-decoration: none;
-    transition: color var(--ease-fast);
-  }
-
-  .nav-link:hover .nav-label,
-  .nav-link:focus .nav-label {
-    color: var(--accent-brown);
-  }
-
-  .nav-num {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--accent-gold);
-    opacity: 0.8;
-    position: relative;
-    top: -2px;
-  }
-
-  .nav-label {
-    transition: color var(--ease-fast);
-  }
-
-  /* Order CTA — stands apart */
-  .nav-order-cta {
-    display: inline-block;
-    font-family: var(--font-body) !important;
-    font-size: 14px !important;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--bg-base) !important;
-    background: var(--accent-dark);
-    padding: 14px 32px !important;
-    border-radius: var(--r-pill);
-    text-decoration: none;
-    transition: background var(--ease-fast), transform var(--ease-fast);
-  }
-
-  .nav-order-cta:hover {
-    background: var(--accent-brown);
-    transform: translateY(-1px);
-  }
-
-  /* Tagline at bottom of overlay */
-  .nav-tagline {
-    font-family: var(--font-body);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    display: none;
   }
 
   .mobile-menu-toggle {
     display: flex;
   }
 
-  /* Restore mobile-only overlay elements */
-  .nav-num {
-    display: inline;
-  }
-
-  .nav-tagline,
-  .nav-order-cta {
-    display: block;
+  /* Activate overlay layout at mobile */
+  .mobile-nav-overlay {
+    display: flex;
   }
 
   /* Hero */
@@ -1680,5 +1666,19 @@ h4 { font-size: var(--sz-h4); font-weight: 600; }
 
   .gallery-item-wide {
     grid-column: auto;
+  }
+
+  /* Tighten overlay spacing on small phones */
+  .nav-content {
+    gap: var(--sp-6);
+    padding: var(--sp-8) var(--sp-6);
+  }
+
+  .mobile-nav-overlay .nav-link {
+    font-size: 22px;
+  }
+
+  .mobile-nav-overlay .nav-list li:not(:last-child)::after {
+    margin: var(--sp-2) auto;
   }
 }
